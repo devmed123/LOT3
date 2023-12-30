@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Etat de Certification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 90%;
+            border-collapse: collapse;
+            margin-left: 6%;
+
+        }
+
+        th, td {
+            padding: 20px;
+            border: 1px solid #ccc;
+
+        }
+        tr td:nth-child(2) {
+            text-align: center;
+        }
+
+        .drop-container {
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .drop-container.highlight {
+            border-color: #007bff;
+        }
+
+        .file-input {
+            display: block;
+        }
+
+        .file-list {
+            margin-top: 10px;
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .file-list-item {
+            margin-bottom: 5px;
+        }
+
+        .submit-button {
+            text-align: center;
+            margin-top: 20px;
+
+        }
+
+        .submit-button button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+
+
+        .label-file {
+            cursor: pointer;
+            color: #00b1ca;
+            font-weight: bold;
+        }
+        .label-file:hover {
+            color: #25a5c4;
+        }
+
+
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var dropContainers = document.getElementsByClassName("drop-container");
+
+            Array.from(dropContainers).forEach(function(dropContainer) {
+                dropContainer.addEventListener("dragenter", function(e) {
+                    e.preventDefault();
+                    dropContainer.classList.add("highlight");
+                });
+
+                dropContainer.addEventListener("dragover", function(e) {
+                    e.preventDefault();
+                });
+
+                dropContainer.addEventListener("dragleave", function() {
+                    dropContainer.classList.remove("highlight");
+                });
+
+                dropContainer.addEventListener("drop", function(e) {
+                    e.preventDefault();
+                    dropContainer.classList.remove("highlight");
+                    var fileList = e.dataTransfer.files;
+                    displayFileList(fileList, dropContainer.id);
+                });
+            });
+
+            function displayFileList(files, containerId) {
+                var fileListNode = document.getElementById(containerId + "-list");
+                fileListNode.innerHTML = "";
+
+                for (var i = 0; i < files.length; i++) {
+                    var listItem = document.createElement("li");
+                    listItem.className = "file-list-item";
+                    listItem.textContent = files[i].name;
+                    fileListNode.appendChild(listItem);
+                }
+            }
+        });
+    </script>
+</head>
+<body>
+<br/>
+<h1>Charger les fichiers</h1>
+<br/><br/><br/>
+<form action="/store" method="POST" enctype="multipart/form-data">
+
+    <table>
+        <tr>
+            <th>Label</th>
+            <th>Champ d'entrée</th>
+
+        </tr>
+        <tr>
+            <td>
+                <label for="file" class="label-file">Fichier puis de données </label>
+            </td>
+            <td>
+                <input type="file" id="file" name="file" class="input-file" >
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+                <label for="identification_file" class="label-file">Fichier identifications </label>
+            </td>
+            <td>
+                <input type="file" id="identification_file" name="identification_file" class="input-file" >
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+                <label for="dates_file" class="label-file">Fichier dates </label>
+            </td>
+            <td>
+                <input type="file" id="dates_file" name="date_file" class="input-file" >
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+                <label for="montants_file" class="label-file">Fichier montants </label>
+            </td>
+            <td>
+                <input type="file" id="montants_file" name="montant_file" class="input-file" >
+            </td>
+
+        </tr>
+
+    </table>
+
+
+    <div class="submit-button">
+        <button type="submit">Envoyer</button>
+    </div>
+</form>
+</body>
+</html>
