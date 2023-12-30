@@ -1,4 +1,4 @@
-package com.example.etats_lot3.Utils;
+package com.example.etats_lot3.mappers;
 
 import com.example.etats_lot3.Entity.Ligne;
 import com.example.etats_lot3.Entity.Pam;
@@ -13,11 +13,11 @@ import java.io.Reader;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CsvExtractor {
+public class CsvMapper {
     InputStream inputStreamligne;
     InputStream inputStreampam;
 
-    public CsvExtractor(InputStream inputStreamligne, InputStream inputStreampam) {
+    public CsvMapper(InputStream inputStreamligne, InputStream inputStreampam) {
         this.inputStreamligne = inputStreamligne;
         this.inputStreampam = inputStreampam;
     }

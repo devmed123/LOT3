@@ -1,14 +1,13 @@
-package com.example.certification.web;
+package com.example.etats_lot3.Web;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class HomeController {
 
-    @GetMapping("/test")
-    public String home() {
+    @GetMapping("/index")
+    public String index() {
         return "Index";
     }
 }

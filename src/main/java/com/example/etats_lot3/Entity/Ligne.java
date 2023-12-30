@@ -1,122 +1,33 @@
 package com.example.etats_lot3.Entity;
+import java.util.Objects;
 
 public class Ligne {
-  private  String NODOSS;
-  private  String RFPRET_11;
-  private  String MTAUTO_I80;
-  private  String CDPDT_80;
-  private  String VLDECADA4_11;
-  private  String RFTIERS_I09;
-  private  String IBAN_09;
-  private  String DTPEF_I80;
-  private  String DTPEF_I81;
-  private  String DTFUTIL_I81;
-  private  String TXOUTRV;
+  public  String NODOSS;
+  public  String RFPRET_11;
+  public  String MTAUTO_I80;
+  public  String CDPDT_80;
+    public  String VLDECADA4_11;
+    public  String RFTIERS_I09;
+    public  String IBAN_09;
+    public  String DTPEF_I80;
+    public  String DTPEF_I81;
+    public  String DTFUTIL_I81;
+    public  String TXOUTRV;
+    public String DECEDEN_21ED;
 
-    public Ligne(String NODOSS, String RFPRET_11, String MTAUTO_I80, String CDPDT_80, String VLDECADA4_11, String RFTIERS_I09, String IBAN_09, String DTPEF_I80, String DTPEF_I81, String DTFUTIL_I81, String TXOUTRV) {
-        this.NODOSS = NODOSS;
-        this.RFPRET_11 = RFPRET_11;
-        this.MTAUTO_I80 = MTAUTO_I80;
-        this.CDPDT_80 = CDPDT_80;
-        this.VLDECADA4_11 = VLDECADA4_11;
-        this.RFTIERS_I09 = RFTIERS_I09;
-        this.IBAN_09 = IBAN_09;
-        this.DTPEF_I80 = DTPEF_I80;
-        this.DTPEF_I81 = DTPEF_I81;
-        this.DTFUTIL_I81 = DTFUTIL_I81;
-        this.TXOUTRV = TXOUTRV;
-    }
-
-    public Ligne() {
-    }
-
-
-    public String getNODOSS() {
-        return NODOSS;
-    }
-
-    public String getRFPRET_11() {
-        return RFPRET_11;
-    }
-
-    public String getMTAUTO_I80() {
-        return MTAUTO_I80;
-    }
-
-    public String getCDPDT_80() {
-        return CDPDT_80;
-    }
-
-    public String getVLDECADA4_11() {
-        return VLDECADA4_11;
-    }
-
-    public String getRFTIERS_I09() {
-        return RFTIERS_I09;
-    }
-
-    public String getIBAN_09() {
-        return IBAN_09;
-    }
-
-    public String getDTPEF_I80() {
-        return DTPEF_I80;
-    }
-
-    public String getDTPEF_I81() {
-        return DTPEF_I81;
-    }
-
-    public String getDTFUTIL_I81() {
-        return DTFUTIL_I81;
-    }
-
-    public String getTXOUTRV() {
-        return TXOUTRV;
-    }
-
-    public void setNODOSS(String NODOSS) {
-        this.NODOSS = NODOSS;
-    }
-
-    public void setRFPRET_11(String RFPRET_11) {
-        this.RFPRET_11 = RFPRET_11;
-    }
-
-    public void setMTAUTO_I80(String MTAUTO_I80) {
-        this.MTAUTO_I80 = MTAUTO_I80;
-    }
-
-    public void setCDPDT_80(String CDPDT_80) {
-        this.CDPDT_80 = CDPDT_80;
-    }
-
-    public void setVLDECADA4_11(String VLDECADA4_11) {
-        this.VLDECADA4_11 = VLDECADA4_11;
-    }
-
-    public void setRFTIERS_I09(String RFTIERS_I09) {
-        this.RFTIERS_I09 = RFTIERS_I09;
-    }
-
-    public void setIBAN_09(String IBAN_09) {
-        this.IBAN_09 = IBAN_09;
-    }
-
-    public void setDTPEF_I80(String DTPEF_I80) {
-        this.DTPEF_I80 = DTPEF_I80;
-    }
-
-    public void setDTPEF_I81(String DTPEF_I81) {
-        this.DTPEF_I81 = DTPEF_I81;
-    }
-
-    public void setDTFUTIL_I81(String DTFUTIL_I81) {
-        this.DTFUTIL_I81 = DTFUTIL_I81;
-    }
-
-    public void setTXOUTRV(String TXOUTRV) {
-        this.TXOUTRV = TXOUTRV;
+    public Ligne(String NODOSS, String RFPRET_11, String MTAUTO_I80, String CDPDT_80, String VLDECADA4_11, String RFTIERS_I09, String IBAN_09, String DTPEF_I80, String DTPEF_I81, String DTFUTIL_I81, String TXOUTRV, String DECEDEN_21ED) {
+        this.NODOSS = NODOSS.trim();
+        this.RFPRET_11 = RFPRET_11.trim();
+        this.MTAUTO_I80 = MTAUTO_I80.trim();
+        this.CDPDT_80 = CDPDT_80.trim();
+        this.VLDECADA4_11 = VLDECADA4_11.trim();
+        this.RFTIERS_I09 = RFTIERS_I09.trim();
+        this.IBAN_09 = IBAN_09.trim();
+        this.DTPEF_I80 = DTPEF_I80.trim();
+        this.DTPEF_I81 = DTPEF_I81.trim();
+        this.DTFUTIL_I81 = DTFUTIL_I81.trim();
+        this.TXOUTRV = TXOUTRV.trim();
+        this.DECEDEN_21ED = DECEDEN_21ED.trim();
     }
 
     @Override
@@ -134,5 +45,43 @@ public class Ligne {
                 ", DTFUTIL_I81='" + DTFUTIL_I81 + '\'' +
                 ", TXOUTRV='" + TXOUTRV + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Ligne ligne = (Ligne) o;
+
+        if (!Objects.equals(NODOSS, ligne.NODOSS)) return false;
+        if (!Objects.equals(RFPRET_11, ligne.RFPRET_11)) return false;
+        if (!Objects.equals(MTAUTO_I80, ligne.MTAUTO_I80)) return false;
+        if (!Objects.equals(CDPDT_80, ligne.CDPDT_80)) return false;
+        if (!Objects.equals(VLDECADA4_11, ligne.VLDECADA4_11)) return false;
+        if (!Objects.equals(RFTIERS_I09, ligne.RFTIERS_I09)) return false;
+        if (!Objects.equals(IBAN_09, ligne.IBAN_09)) return false;
+        if (!Objects.equals(DTPEF_I80, ligne.DTPEF_I80)) return false;
+        if (!Objects.equals(DTPEF_I81, ligne.DTPEF_I81)) return false;
+        if (!Objects.equals(DTFUTIL_I81, ligne.DTFUTIL_I81)) return false;
+        if (!Objects.equals(TXOUTRV, ligne.TXOUTRV)) return false;
+        return Objects.equals(DECEDEN_21ED, ligne.DECEDEN_21ED);
+    }
+
+    public Ligne generateDiff(Ligne l){
+        return new Ligne(
+                NODOSS.equals(l.NODOSS) ? NODOSS : "awb "+NODOSS + " || LS " +l.NODOSS,
+                RFPRET_11.equals(l.RFPRET_11) ? RFPRET_11 : "awb "+RFPRET_11 + " || LS " +l.RFPRET_11,
+                MTAUTO_I80.equals(l.MTAUTO_I80) ? MTAUTO_I80 : "awb "+MTAUTO_I80 + " || LS " +l.MTAUTO_I80,
+                CDPDT_80.equals(l.CDPDT_80) ? CDPDT_80 : "awb "+CDPDT_80 + " || LS " +l.CDPDT_80,
+                VLDECADA4_11.equals(l.VLDECADA4_11) ? VLDECADA4_11 : "awb "+VLDECADA4_11 + " || LS " +l.VLDECADA4_11,
+                RFTIERS_I09.equals(l.RFTIERS_I09) ? RFTIERS_I09 : "awb "+RFTIERS_I09 + " || LS " +l.RFTIERS_I09,
+                IBAN_09.equals(l.IBAN_09) ? IBAN_09 : "awb "+IBAN_09 + " || LS " +l.IBAN_09,
+                DTPEF_I80.equals(l.DTPEF_I80) ? DTPEF_I80 : "awb "+DTPEF_I80 + " || LS " +l.DTPEF_I80,
+                DTPEF_I81.equals(l.DTPEF_I81) ? DTPEF_I81 : "awb "+DTPEF_I81 + " || LS " +l.DTPEF_I81,
+                DTFUTIL_I81.equals(l.DTFUTIL_I81) ? DTFUTIL_I81 : "awb "+DTFUTIL_I81 + " || LS " +l.DTFUTIL_I81,
+                TXOUTRV.equals(l.TXOUTRV) ? TXOUTRV : "awb "+TXOUTRV + " || LS " +l.TXOUTRV,
+                DECEDEN_21ED.equals(l.DECEDEN_21ED) ? DECEDEN_21ED : "awb "+DECEDEN_21ED + " || LS " +l.DECEDEN_21ED
+        );
     }
 }
