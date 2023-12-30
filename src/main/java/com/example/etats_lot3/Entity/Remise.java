@@ -20,6 +20,7 @@ public class Remise {
         this.TXREM = TXREM;
         this.NBRVAL = NBRVAL;
         this.RFGRP_11 = RFGRP_11;
+        this.RFGRP_11 = RFGRP_11;
     }
 
     public String getNODOSS() {
