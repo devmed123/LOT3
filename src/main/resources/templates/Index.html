@@ -26,6 +26,7 @@
             border: 1px solid #ccc;
 
         }
+
         tr td:nth-child(2) {
             text-align: center;
         }
@@ -68,12 +69,12 @@
         }
 
 
-
         .label-file {
             cursor: pointer;
             color: #00b1ca;
             font-weight: bold;
         }
+
         .label-file:hover {
             color: #25a5c4;
         }
@@ -81,24 +82,23 @@
 
     </style>
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             var dropContainers = document.getElementsByClassName("drop-container");
-
-            Array.from(dropContainers).forEach(function(dropContainer) {
-                dropContainer.addEventListener("dragenter", function(e) {
+            Array.from(dropContainers).forEach(function (dropContainer) {
+                dropContainer.addEventListener("dragenter", function (e) {
                     e.preventDefault();
                     dropContainer.classList.add("highlight");
                 });
 
-                dropContainer.addEventListener("dragover", function(e) {
+                dropContainer.addEventListener("dragover", function (e) {
                     e.preventDefault();
                 });
 
-                dropContainer.addEventListener("dragleave", function() {
+                dropContainer.addEventListener("dragleave", function () {
                     dropContainer.classList.remove("highlight");
                 });
 
-                dropContainer.addEventListener("drop", function(e) {
+                dropContainer.addEventListener("drop", function (e) {
                     e.preventDefault();
                     dropContainer.classList.remove("highlight");
                     var fileList = e.dataTransfer.files;
@@ -124,38 +124,34 @@
 <br/>
 <h1>Charger les fichiers</h1>
 <br/><br/><br/>
-<form action="/store" method="POST" enctype="multipart/form-data">
-
+<form action="/lot3/store" method="POST" enctype="multipart/form-data">
     <table>
         <tr>
             <th>Label</th>
             <th>Champ d'entrée</th>
-
         </tr>
         <tr>
             <td>
                 <label for="file" class="label-file">Fichier puis de données </label>
             </td>
             <td>
-                <input type="file" id="file" name="file" class="input-file" >
+                <input type="file" id="file" name="file" class="input-file">
             </td>
-
         </tr>
         <tr>
             <td>
                 <label for="ligne_extraction" class="label-file">Extraction Ligne </label>
             </td>
             <td>
-                <input type="file" id="ligne_extraction" name="ligne_extraction" class="input-file" >
+                <input type="file" id="ligne_extraction" name="ligne_extraction" class="input-file">
             </td>
-
         </tr>
         <tr>
             <td>
                 <label for="pam_extraction" class="label-file">Extrcation LCN </label>
             </td>
             <td>
-                <input type="file" id="pam_extraction" name="pam_extraction" class="input-file" >
+                <input type="file" id="pam_extraction" name="pam_extraction" class="input-file">
             </td>
 
         </tr>
