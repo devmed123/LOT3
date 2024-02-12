@@ -6,7 +6,6 @@
         import com.example.etats_lot3.mappers.CsvMapper;
         import com.example.etats_lot3.mappers.PddMapper;
         import java.io.ByteArrayOutputStream;
-        import java.io.OutputStreamWriter;
         import java.util.Iterator;
         import java.util.List;
         import java.util.Map;
@@ -16,8 +15,6 @@
         import org.springframework.http.HttpHeaders;
         import org.springframework.http.MediaType;
         import org.springframework.http.ResponseEntity;
-        import org.springframework.http.ResponseEntity.BodyBuilder;
-        import org.springframework.web.bind.annotation.GetMapping;
         import org.springframework.web.bind.annotation.PostMapping;
         import org.springframework.web.bind.annotation.RequestParam;
         import org.springframework.web.bind.annotation.RestController;
@@ -88,16 +85,14 @@ public class CertificationController {
             var18 = var28;
             throw var28;
         } finally {
-            if (zipOutputStream != null) {
-                if (var18 != null) {
-                    try {
-                        zipOutputStream.close();
-                    } catch (Throwable var27) {
-                        var18.addSuppressed(var27);
-                    }
-                } else {
+            if (var18 != null) {
+                try {
                     zipOutputStream.close();
+                } catch (Throwable var27) {
+                    var18.addSuppressed(var27);
                 }
+            } else {
+                zipOutputStream.close();
             }
 
         }
@@ -108,36 +103,5 @@ public class CertificationController {
         return ResponseEntity.ok().headers(headers).body(byteArrayOutputStream.toByteArray());
     }
 
-    @GetMapping({"/said"})
-    public ResponseEntity<byte[]> getdoss() throws Exception {
-        String textContent = "Hello;thisis;aextfile";
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        OutputStreamWriter writer = new OutputStreamWriter(byteArrayOutputStream);
-        Throwable var4 = null;
 
-        try {
-            writer.write(textContent);
-        } catch (Throwable var13) {
-            var4 = var13;
-            throw var13;
-        } finally {
-            if (writer != null) {
-                if (var4 != null) {
-                    try {
-                        writer.close();
-                    } catch (Throwable var12) {
-                        var4.addSuppressed(var12);
-                    }
-                } else {
-                    writer.close();
-                }
-            }
-
-        }
-
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.TEXT_PLAIN);
-        headers.setContentDispositionFormData("attachment", "textfile.csv");
-        return ResponseEntity.ok().headers(headers).body(byteArrayOutputStream.toByteArray());
-    }
 }

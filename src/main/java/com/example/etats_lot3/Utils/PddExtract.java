@@ -15,13 +15,10 @@ public class PddExtract {
     Map<String, String> data_3 = new HashMap();
     Map<String, String> data_4 = new HashMap();
     Map<String, String> data_5ED = new HashMap();
-    Map<String, String> data_11 = new HashMap();
-    Map<String, String> data_18 = new HashMap();
+
     Map<String, String> data_30 = new HashMap();
     Map<String, String> data_28 = new HashMap();
     Map<String, String> data_31 = new HashMap();
-    Map<String, String> data_37 = new HashMap();
-    Map<String, String> data_51 = new HashMap();
     Map<String, String> data_1 = new HashMap();
     Map<String, String> data_5IT = new HashMap();
     Map<String, String> data_5CE = new HashMap();
@@ -141,7 +138,6 @@ public class PddExtract {
     public Map<String, Pam> extract_pam() {
         Map<String, Pam> result = new HashMap();
         Iterator var2 = this.data_3.entrySet().iterator();
-
         while(var2.hasNext()) {
             Entry<String, String> entry = (Entry)var2.next();
             if (entry.getValue().startsWith("07", 131)) {
